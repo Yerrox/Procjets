@@ -19,7 +19,7 @@ btn.addEventListener('click', () => {
 
     const cialoTabeli = document.getElementsByTagName('tbody')[0];
     
-    const noweWiersze = `<tr><td>${nazProdukt}</td></tr><tr><td>${sztuki}</td></tr><tr><td>${wartoscCalkowita}</td></tr>`;
+    const noweWiersze = `<tr><td>${nazProdukt}</td><td>${sztuki}</td><td>${wartoscCalkowita}</td></tr>`;
 
     cialoTabeli.innerHTML += noweWiersze;
 
