@@ -34,7 +34,7 @@ input{
     border-collapse: collapse;
 }
 #tab td, #tab th{
-    border: 1px solid var(--bg-gray);
+    border: 1px solid black;
     padding: 10px;
 }
 #tab td{
