@@ -2,9 +2,6 @@
     --bg-gray: #f5f5f5;
     --obramowanie: #ccc;
 }
-body{
-    background-color: blue;
-}
 *{
     margin: 0;
     padding: 0;
@@ -13,6 +10,7 @@ body{
 #aplikacja{
     width: 1000px;
     margin: 0 auto;
+    border: var(--obramowanie);
 }
 #gl{
     display: flex;
@@ -36,7 +34,7 @@ input{
     border-collapse: collapse;
 }
 #tab td, #tab th{
-    border: 1px solid gray;
+    border: 1px solid var(--bg-gray);
     padding: 10px;
 }
 #tab td{
@@ -47,7 +45,7 @@ input{
     text-transform: uppercase;
 }
 #tab tbody tr:nth-child(2n){
-    background-color: darkgray;
+    background-color: var(--bg-gray);
 }
 h2{
     text-align: center;
@@ -55,4 +53,6 @@ h2{
 #btn-dodaj{
     background-color: chartreuse;
     padding: 10px 15px;
+    border-radius: 15px;
+    font-style: italic;
 }
