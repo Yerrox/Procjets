@@ -3,11 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona</title>
+    <title>Magazyn Centralny</title>
 </head>
 <body>
     
-    <h1>Testowa strona HTML</h1>
+    <div id="aplikacja">
+        <header id="naglowek">
+            <h1>Ewidencja Towarów</h1>
+        </header>
+
+        <main id="gl">
+            <section id="lewa">
+                <h2>Nowy wpis</h2>
+                <form id="panel-wprowadzania" method="post">
+                    <p>
+                        <label for="nazprodukt">Nazwa produktu:</label>
+                        <input type="text" name="nazprodukt" id="nazprodukt">
+                    </p>
+
+                    <p>
+                        <label for="sztuk">Ilość sztuk:</label>
+                        <input type="number" name="sztuk" id="sztuk">
+                    </p>
+
+                    <p>
+                        <label for="cena">Cena jednostkowa:</label>
+                        <input type="number" name="cena" id="cena">
+                    </p>
+
+                    <button type="button" id="btn-dodaj">Zarejestruj</button>
+                </form>
+            </section>
+            <section id="prawa">
+                <h2>Stan Magazynu</h2>
+                <table id="tab">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>Ilość</th>
+                            <th>Wartość całkowita</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">SUMA WARTOŚCI:</td>
+                            <td id="suma-wyjście">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </main>
+    </div>
 
 </body>
 </html>
