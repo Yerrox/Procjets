@@ -16,7 +16,7 @@ btn.addEventListener('click', () => {
 
     const energiaSkumulowana = amplituda * czas;
 
-    const cialoTabeli = document.querySelector('table tbody');
+    const cialoTabeli = document.getElementById('cialo-tabeli');
     const nowyWiersz = `<tr><td>${rejonWys}</td><td>${amplituda}</td><td>${energiaSkumulowana}</td></tr>`;
 
     cialoTabeli.innerHTML += nowyWiersz;
