@@ -23,6 +23,7 @@
 }
 form label{
     display: block;
+    text-align: center;
 }
 input{
     margin: 10px;
@@ -44,4 +45,11 @@ input{
 }
 #tab tbody tr:nth-child(2n){
     background-color: darkgray;
+}
+h2{
+    text-align: center;
+}
+#btn-dodaj{
+    background-color: chartreuse;
+    padding: 10px 15px;
 }
