@@ -3,60 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stacja Sejsmologiczna</title>
+    <title>Watomierz</title>
     <link rel="stylesheet" href="styl.css">
 </head>
 <body>
 
-    <div id="aplikacja">
+    <div id="interfejs-glowny">
         <header>
-            <h1>Centrala Sejsmologiczna <span>v2.0</span></h1>
+            <h1>Watomierz v1.0- Diagnostyka</h1>
         </header>
 
         <main>
-            <section class="panel-rejestracji">
-                <h2>Rejestracja Wstrząsu</h2>
-                
-                <form id="formularz-wstrzasu">
-                    <div class="pole">
-                        <label for="rejon">Rejon wystąpienia (Kod strefy):</label>
-                        <input type="text" id="rejon" placeholder="np. Sektor-7">
-                    </div>
+            <section id="lewa">
+                <h2>Rejestruj Urządzenie</h2>
+                <form method="post">
+                    <p>
+                        <label for="sprzet">Nazwa sprzętu:</label>
+                        <input type="text" name="sprzet" id="sprzet">
+                    </p>
 
-                    <div class="pole">
-                        <label for="amplituda">Amplituda (w skali Richtera):</label>
-                        <input type="number" id="amplituda" step="0.1" placeholder="np. 4.5">
-                    </div>
+                    <p>
+                        <label for="pobor">Pobór mocy (w watach):</label>
+                        <input type="number" name="pobor" id="pobor">
+                    </p>
 
-                    <div class="pole">
-                        <label for="czas">Czas trwania (w sekundach):</label>
-                        <input type="number" id="czas" placeholder="np. 15">
-                    </div>
+                    <p>
+                        <label for="czas">Czas pracy w godzinach:</label>
+                        <input type="number" name="czas" id="czas">
+                    </p>
 
-                    <button type="button" id="btn-zapisz">Zapisz Odczyt</button>
+                    <button type="button">Oblicz i Zapisz</button>
                 </form>
             </section>
-
-            <section class="panel-raportow">
-                <h2>Zestawienie Odczytów</h2>
-                
-                <table id="tabela-odczytow">
+            <section id="prawa">
+                <h2>Zestawienie Poboru</h2>
+                <table id="tab">
                     <thead>
                         <tr>
-                            <th>Rejon</th>
-                            <th>Amplituda</th>
-                            <th>Skumulowana Energia</th>
+                            <th>Urządzenie</th>
+                            <th>Zużycie (kWh)</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody id="cialo-tabeli">
-                        
+                    <tbody>
+
                     </tbody>
+                    <tfoot>
+
+                    </tfoot>
                 </table>
 
-                <div class="podsumowanie">
-                    <h3>Raport Systemowy</h3>
-                    <p id="statystyki">Oczekiwanie na pierwsze dane z czujników...</p>
-                </div>
+                <p id="wynik">Brak danych z czujników</p>
             </section>
         </main>
     </div>
