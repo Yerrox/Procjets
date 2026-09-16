@@ -20,7 +20,7 @@ b.addEventListener('click', () =>{
     const cialoTabeli = document.querySelector('table tbody');
     const nowyWiersz = `<tr><td> ${nazwaSprzetu} </td><td> ${zuzycieEnergii} </td><td> ${zuzycieEnergii > 5 ? 'WYSOKIE' : 'W NORMIE'} </td></tr>`;
 
-    cialoTabeli.innerHTML =+ nowyWiersz;
+    cialoTabeli.innerHTML += nowyWiersz;
 
     let akumulator = 0;
     for (let i = 0; i < rejestrZuzycia.length; i++) {
@@ -29,5 +29,5 @@ b.addEventListener('click', () =>{
     }
 
     const p = document.getElementById('wynik');
-    p.textContent = `Zarejestrowano ${element} urządzeń. Całkowite zużycie: ${akumulator} kWh.`;
+    p.textContent = `Zarejestrowano ${rejestrZuzycia.length} urządzeń. Całkowite zużycie: ${akumulator} kWh.`;
 });
