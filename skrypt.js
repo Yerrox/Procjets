@@ -18,8 +18,8 @@ b.addEventListener('click', () =>{
     wielkieLiteryPole.innerText = zmiana1;
 
     const znak5 = ciagZnakow.charAt(4);
-    const znakAscii = ciagZnakow.charCodeAt(znak5);
-    piatyZnakPole.textContent = `Znak: ${znka5}, ASCII: ${znakAscii}`;
+    const znakAscii = ciagZnakow.charCodeAt(4);
+    piatyZnakPole.textContent = `Znak: ${znak5}, ASCII: ${znakAscii}`;
 
     const fraza = ciagZnakow.toUpperCase().indexOf('INF');
     pozycjaInfPole.innerText = fraza;
@@ -35,6 +35,6 @@ b.addEventListener('click', () =>{
 
     const drugieSlowo = separacja[1];
     drugieSlowoPole.innerText = drugieSlowo;
-    
+
 
 });
