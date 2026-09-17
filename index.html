@@ -3,57 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watomierz</title>
+    <title>Dekoder ENIGMA v2</title>
     <link rel="stylesheet" href="styl.css">
 </head>
 <body>
 
-    <div id="interfejs-glowny">
+    <div id="enigma-modul">
         <header>
-            <h1>Watomierz v1.0- Diagnostyka</h1>
+            <h1>System Kryptograficzny <span>ENIGMA v2</span></h1>
         </header>
 
         <main>
-            <section id="lewa">
-                <h2>Rejestruj Urządzenie</h2>
-                <form name="form" method="post">
-                    <p>
-                        <label for="sprzet">Nazwa sprzętu:</label>
-                        <input type="text" name="sprzet" id="sprzet">
-                    </p>
-
-                    <p>
-                        <label for="pobor">Pobór mocy (w watach):</label>
-                        <input type="number" name="pobor" id="pobor">
-                    </p>
-
-                    <p>
-                        <label for="czas">Czas pracy w godzinach:</label>
-                        <input type="number" name="czas" id="czas">
-                    </p>
-
-                    <button type="button" id="btn">Oblicz i Zapisz</button>
-                </form>
+            <section class="panel-wejscia">
+                <h2>Wprowadzanie Sygnału</h2>
+                <div class="pole">
+                    <label for="sygnal">Zaszyfrowany ciąg znaków (min. 15 znaków):</label>
+                    <textarea id="sygnal" rows="3" placeholder="Wprowadź kod... np. Alpha Delta INF03 Echo 007"></textarea>
+                </div>
+                <button type="button" id="btn-dekoduj">Uruchom Dekodowanie</button>
             </section>
-            <section id="prawa">
-                <h2>Zestawienie Poboru</h2>
-                <table id="tab">
-                    <thead>
-                        <tr>
-                            <th>Urządzenie</th>
-                            <th>Zużycie (kWh)</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
-                </table>
-
-                <p id="wynik">Brak danych z czujników</p>
+            <section class="panel-wyjscia">
+                <h2>Raport Dekrypcji</h2>
+                <ul class="lista-wynikow">
+                    <li>1. Sygnał zunifikowany (wielkie litery): <span id="out-wielkie">brak danych</span></li>
+                    <li>2. Piąty znak i jego kod ASCII: <span id="out-znak-ascii">brak danych</span></li>
+                    <li>3. Pozycja frazy "INF": <span id="out-indeks">brak danych</span></li>
+                    <li>4. Wycinek sygnału (od indeksu 4 do 10 włącznie): <span id="out-wycinek">brak danych</span></li>
+                    <li>5. Filtracja (zamiana wszystkich '0' na literę 'O'): <span id="out-podmiana">brak danych</span></li>
+                    <li>6. Drugie słowo (po atomizacji tekstu): <span id="out-slowo">brak danych</span></li>
+                </ul>
             </section>
         </main>
     </div>
