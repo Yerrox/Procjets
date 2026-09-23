@@ -3,39 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dekoder ENIGMA v2</title>
+    <title>Moduł Weryfikacji Zamówień</title>
     <link rel="stylesheet" href="styl.css">
 </head>
 <body>
 
-    <div id="enigma-modul">
+    <main id="kontener-glowny">
         <header>
-            <h1>System Kryptograficzny <span>ENIGMA v2</span></h1>
+            <h1>System Obsługi Klienta <span>v.3.0</span></h1>
         </header>
 
-        <main>
-            <section class="panel-wejscia">
-                <h2>Wprowadzanie Sygnału</h2>
-                <div class="pole">
-                    <label for="sygnal">Zaszyfrowany ciąg znaków (min. 15 znaków):</label>
-                    <textarea id="sygnal" rows="3" placeholder="Wprowadź kod... np. Alpha Delta INF03 Echo 007"></textarea>
+        <div class="uklad-kolumnowy">
+            <section id="panel-danych">
+                <h2>Dane Zamówienia</h2>
+                
+                <div class="wiersz">
+                    <label for="dane-klienta">Imię i nazwisko:</label>
+                    <input type="text" id="dane-klienta" placeholder="Wprowadź dane klienta">
                 </div>
-                <button type="button" id="btn-dekoduj">Uruchom Dekodowanie</button>
+                
+                <div class="wiersz">
+                    <label for="kod-promo">Kod promocyjny:</label>
+                    <input type="text" id="kod-promo" placeholder="Wprowadź kod">
+                </div>
+                
+                <div class="wiersz">
+                    <label for="wartosc">Wartość zamówienia (PLN):</label>
+                    <input type="number" step="0.01" id="wartosc" placeholder="0.00">
+                </div>
+                
+                <button type="button" id="btn-weryfikuj">Weryfikuj Zamówienie</button>
             </section>
 
-            <section class="panel-wyjscia">
-                <h2>Raport Dekrypcji</h2>
-                <ul class="lista-wynikow">
-                    <li>1. Sygnał zunifikowany (wielkie litery): <span id="out-wielkie">brak danych</span></li>
-                    <li>2. Piąty znak i jego kod ASCII: <span id="out-znak-ascii">brak danych</span></li>
-                    <li>3. Pozycja frazy "INF": <span id="out-indeks">brak danych</span></li>
-                    <li>4. Wycinek sygnału (od indeksu 4 do 10 włącznie): <span id="out-wycinek">brak danych</span></li>
-                    <li>5. Filtracja (zamiana wszystkich '0' na literę 'O'): <span id="out-podmiana">brak danych</span></li>
-                    <li>6. Drugie słowo (po atomizacji tekstu): <span id="out-slowo">brak danych</span></li>
-                </ul>
+            <section id="panel-wynikow">
+                <h2>Karta Podsumowania</h2>
+                
+                <div class="wynik-wiersz status-wiersz">
+                    <span>Status weryfikacji:</span>
+                    <strong id="wynik-status">Oczekiwanie na dane</strong>
+                </div>
+
+                <div class="wynik-wiersz">
+                    <span>Wygenerowany ID Klienta:</span>
+                    <strong id="identyfikator">-</strong>
+                </div>
+
+                <div class="wynik-wiersz">
+                    <span>Ostateczna kwota do zapłaty:</span>
+                    <strong id="kwota">-</strong>
+                </div>
+
+                <div class="wynik-wiersz">
+                    <span>Kod po weryfikacji (cenzura):</span>
+                    <strong id="cenzura">-</strong>
+                </div>
             </section>
-        </main>
-    </div>
+        </div>
+    </main>
 
     <script src="skrypt.js"></script>
 </body>
