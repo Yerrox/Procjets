@@ -7,7 +7,7 @@ btn.addEventListener('click', () => {
     const poleStatus = document.getElementById('wynik-status');
     const poleIdentyfikator = document.getElementById('identyfikator');
     const poleKwota = document.getElementById('kwota');
-    const poleCenzura = document.getElementById('kwota');
+    const poleCenzura = document.getElementById('cenzura');
 
     const polePanelWynikow = document.getElementById('panel-wynikow');
 
