@@ -50,6 +50,6 @@ btn.addEventListener('click', () => {
         poleStatus.style.color = "#e74c3c";
     }
 
-    const zamiana = kodPromocyjnyW.replace(/X/i);
+    const zamiana = kodPromocyjnyW.replace(/X/gi, '*');
     poleCenzura.textContent = zamiana;
 });
