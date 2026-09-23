@@ -16,7 +16,7 @@ btn.addEventListener('click', () => {
         return;
     }
 
-    const trzyPierwszeZnaki = daneKlientaW.substring(0, 4);
+    const trzyPierwszeZnaki = daneKlientaW.substring(0, 3);
     const wielkieLitery = trzyPierwszeZnaki.toUpperCase();
 
     const identyfikator = wielkieLitery + "-" + kodPromocyjnyW;
