@@ -19,10 +19,10 @@ btn.addEventListener('click', () => {
     const trzyPierwszeZnaki = daneKlientaW.substring(0, 3);
     const wielkieLitery = trzyPierwszeZnaki.toUpperCase();
 
-    const identyfikator = wielkieLitery + "-" + kodPromocyjnyW;
+    const identyfikator = wielkieLitery + "-" + kodPromocyjnyW.length;
     poleIdentyfikator.textContent = identyfikator;
 
-    const tablica = kodPromocyjnyW.split(" ");
+    const tablica = kodPromocyjnyW.split("");
 
     let akumulator = 0;
     for (let i = 0; i < tablica.length; i++) {
@@ -34,14 +34,14 @@ btn.addEventListener('click', () => {
         }
     }
 
-    if (kodPromocyjnyW.length === 5 && akumulator === 1) {
+    if (kodPromocyjnyW.length > 5 && akumulator >= 1) {
         polePanelWynikow.style.backgroundColor = "#12331f";
         polePanelWynikow.style.border = "1px solid #2ecc71";
         const suma = wartoscZamowienie * 0.8;
         poleKwota.textContent = suma;
         poleStatus.textContent = `ZNIŻKA AKTYWNA`;
         poleStatus.style.color = "#2ecc71";
-    }else if (kodPromocyjnyW.length !== 5 && akumulator !== 1){
+    }else{
         polePanelWynikow.style.backgroundColor = "#331212";
         polePanelWynikow.style.border = "1px solid #e74c3c";
         const suma = wartoscZamowienie * 0.8;
