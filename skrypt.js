@@ -1,55 +1,61 @@
-const btn = document.getElementById('btn-weryfikuj');
-btn.addEventListener('click', () => {
-    const daneKlientaW = document.getElementById('dane-klienta').value.trim();
-    const kodPromocyjnyW = document.getElementById('kod-promo').value.trim();
-    const wartoscZamowienie = parseFloat(document.getElementById('wartosc').value);
-
-    const poleStatus = document.getElementById('wynik-status');
-    const poleIdentyfikator = document.getElementById('identyfikator');
-    const poleKwota = document.getElementById('kwota');
-    const poleCenzura = document.getElementById('cenzura');
-
-    const polePanelWynikow = document.getElementById('panel-wynikow');
-
-    if (daneKlientaW.length === 0 || isNaN(wartoscZamowienie) || wartoscZamowienie <= 0) {
-        alert('BŁĄD: Wprowadź prawidłowe dane zamówienia.');
+const b = document.getElementById('btn-start');
+b.addEventListener('click', () => {
+    const x = confirm('Zainicjować obliczenia wektora?');
+    if (x === false) {
+        console.error('Autoryzacja odrzucona przez operatora.');
         return;
     }
 
-    const trzyPierwszeZnaki = daneKlientaW.substring(0, 3);
-    const wielkieLitery = trzyPierwszeZnaki.toUpperCase();
+    const y = new Date();
+    let lokalna = y.getTime();
 
-    const identyfikator = wielkieLitery + "-" + kodPromocyjnyW.length;
-    poleIdentyfikator.textContent = identyfikator;
+    const wpolrzednaX = parseFloat(document.getElementById('param-x').value);
+    const wpolrzednaY = parseFloat(document.getElementById('param-y').value);
 
-    const tablica = kodPromocyjnyW.split("");
+    const outSqrt = document.getElementById('out-sqrt');
+    const outExp = document.getElementById('out-exp');
+    const outFloor = document.getElementById('out-floor');
+    const outLos = document.getElementById('out-los');
+    const outData = document.getElementById('out-data');
+    const outCzas = document.getElementById('out-czas');
+    const outSylwester = document.getElementById('out-sylwester');
+    const outCpu = document.getElementById('out-cpu');
 
-    let akumulator = 0;
-    for (let i = 0; i < tablica.length; i++) {
-        const x = tablica[i];
-        const znak = x.charCodeAt(0);
-
-        if (znak === 50 || znak === 51) {
-            akumulator++;
-        }
+    if (isNaN(wpolrzednaX) || isNaN(wpolrzednaY)) {
+        alert('BŁĄD KRYTYCZNY DANYCH');
+        return;
     }
 
-    if (kodPromocyjnyW.length > 5 && akumulator >= 1) {
-        polePanelWynikow.style.backgroundColor = "#12331f";
-        polePanelWynikow.style.border = "1px solid #2ecc71";
-        const suma = wartoscZamowienie * 0.8;
-        poleKwota.textContent = suma;
-        poleStatus.textContent = `ZNIŻKA AKTYWNA`;
-        poleStatus.style.color = "#2ecc71";
-    }else{
-        polePanelWynikow.style.backgroundColor = "#331212";
-        polePanelWynikow.style.border = "1px solid #e74c3c";
-        const suma = wartoscZamowienie * 0.8;
-        poleKwota.textContent = suma;
-        poleStatus.textContent = `KOD NIEPRAWIDŁOWY`;
-        poleStatus.style.color = "#e74c3c";
-    }
+    const u = Math.abs(wpolrzednaX);
+    outSqrt.innerText = Math.sqrt(u);
 
-    const zamiana = kodPromocyjnyW.replace(/X/gi, '*');
-    poleCenzura.textContent = zamiana;
+    const e = Math.exp(wpolrzednaY);
+    outExp.textContent = e;
+
+    outFloor.innerText = Math.floor(wpolrzednaX);
+
+    const losowanie = Math.floor(Math.random() * (wpolrzednaY - wpolrzednaX + 1) + wpolrzednaY);
+    outLos.innerText = losowanie;
+
+    outData.textContent = y.toLocaleDateString;
+
+    const godzina = y.getHours();
+    const minuta = y.getMinutes();
+    const sekunda = y.getSeconds();
+    const t = `${godzina}:${minuta}:${sekunda}`;
+    outCzas.textContent = t;
+
+    let nowyCzas = new Date();
+    const miesiac2 = (nowyCzas.setMonth(11) + 1);
+    const dzien2 = nowyCzas.setDate();
+
+    outSylwester.innerText = nowyCzas;
+
+    const h = new Date()
+    const koniecCzas = h.getTime();
+
+    outCpu.innerText = koniecCzas - lokalna;
+
+    const tablica = [wpolrzednaX, wpolrzednaY]
+    console.table(tablica);
 });
