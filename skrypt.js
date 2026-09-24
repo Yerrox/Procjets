@@ -34,10 +34,10 @@ b.addEventListener('click', () => {
 
     outFloor.innerText = Math.floor(wpolrzednaX);
 
-    const losowanie = Math.floor(Math.random() * (wpolrzednaY - wpolrzednaX + 1) + wpolrzednaY);
+    const losowanie = Math.floor(Math.random() * (wpolrzednaY - wpolrzednaX + 1) + wpolrzednaX);
     outLos.innerText = losowanie;
 
-    outData.textContent = y.toLocaleDateString;
+    outData.textContent = y.toLocaleDateString();
 
     const godzina = y.getHours();
     const minuta = y.getMinutes();
