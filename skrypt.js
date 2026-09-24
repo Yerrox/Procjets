@@ -47,7 +47,7 @@ b.addEventListener('click', () => {
 
     let nowyCzas = new Date();
     const miesiac2 = (nowyCzas.setMonth(11) + 1);
-    const dzien2 = nowyCzas.setDate();
+    const dzien2 = nowyCzas.setDate(31);
 
     outSylwester.innerText = nowyCzas;
 
