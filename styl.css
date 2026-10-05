@@ -1,0 +1,113 @@
+:root {
+    --bg-app: #030712;
+    --panel-bg: #111827;
+    --border-main: #1f2937;
+    --akcent-glow: #eab308;
+    --akcent-hover: #ca8a04;
+    --tekst-jasny: #f9fafb;
+    --tekst-ciemny: #9ca3af;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: var(--bg-app);
+    color: var(--tekst-jasny);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#vanguard-terminal {
+    width: 950px;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-main);
+    box-shadow: 0 0 50px rgba(234, 179, 8, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+header {
+    background-color: #000;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid var(--akcent-glow);
+}
+
+header h1 { font-size: 24px; font-weight: normal; letter-spacing: 1px; }
+header h1 span { color: var(--akcent-glow); font-weight: bold; }
+#out-ostatnia-misja { margin-top: 10px; font-size: 13px; color: #6b7280; font-style: italic; }
+
+.interfejs { display: flex; padding: 30px; gap: 30px; }
+section { flex: 1; display: flex; flex-direction: column; }
+
+h2 {
+    font-size: 14px;
+    color: var(--tekst-ciemny);
+    margin-bottom: 25px;
+    border-bottom: 1px dashed var(--border-main);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.pole { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+label { font-size: 12px; font-weight: bold; color: var(--tekst-ciemny); }
+
+input {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-main);
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+input:focus { outline: none; border-color: var(--akcent-glow); }
+
+.kontener-przyciskow { display: flex; gap: 15px; margin-top: auto; }
+
+button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-glowny { background-color: var(--akcent-glow); color: #000; }
+.btn-glowny:hover { background-color: var(--akcent-hover); }
+
+.btn-poboczny { background-color: transparent; border: 1px solid #ef4444; color: #ef4444; }
+.btn-poboczny:hover { background-color: rgba(239, 68, 68, 0.1); }
+
+.wiersz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-main);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.4s ease;
+}
+
+.wiersz span { color: var(--tekst-ciemny); }
+
+.blok-generowany {
+    margin-top: 20px;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border-main);
+    flex: 1;
+}
+
+.blok-generowany h3 { font-size: 13px; color: var(--akcent-glow); margin-bottom: 15px; }
+#lista-koordynatow { list-style-type: square; padding-left: 20px; font-size: 13px; line-height: 1.8; color: #d1d5db; }

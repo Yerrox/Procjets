@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal VANGUARD</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+    <main id="vanguard-terminal">
+        <header id="naglowek">
+            <h1>Terminal Dowodzenia <span>VANGUARD</span></h1>
+            <p id="out-ostatnia-misja">Brak danych o poprzednich logowaniach.</p>
+        </header>
+
+        <div class="interfejs">
+            <section class="panel-kontrolny">
+                <h2>Parametry Startowe</h2>
+                
+                <div class="pole">
+                    <label for="kod-misji">Kryptonim Operacji (Format: BAZA-CEL-NUMER):</label>
+                    <input type="text" id="kod-misji" placeholder="np. ALFA-OMEGA-07">
+                </div>
+
+                <div class="pole">
+                    <label for="poziom-paliwa">Zapas Paliwa (Jednostki):</label>
+                    <input type="number" step="0.1" id="poziom-paliwa" value="85.5">
+                </div>
+
+                <div class="pole">
+                    <label for="liczba-sektorow">Liczba Sektorów do Przeskanowania:</label>
+                    <input type="number" id="liczba-sektorow" value="3" min="1" max="10">
+                </div>
+
+                <div class="kontener-przyciskow">
+                    <button type="button" id="btn-start" class="btn-glowny">Inicjalizacja Misji</button>
+                    <button type="button" id="btn-format" class="btn-poboczny">Wyczyść Cache</button>
+                </div>
+            </section>
+
+            <section class="panel-raportu">
+                <h2>Logi Systemowe</h2>
+                
+                <div class="wiersz" id="wiersz-statusowy">
+                    <span>Status autoryzacji:</span>
+                    <strong id="out-status">Oczekuje na start...</strong>
+                </div>
+
+                <div class="wiersz">
+                    <span>Stempel czasowy misji:</span>
+                    <strong id="out-czas">--:--:--</strong>
+                </div>
+
+                <div class="wiersz">
+                    <span>Kryptonim Celu (Zdekodowany):</span>
+                    <strong id="out-cel">---</strong>
+                </div>
+
+                <div class="wiersz">
+                    <span>Paliwo na sektor (zaokr. w dół):</span>
+                    <strong id="out-spalanie">0</strong>
+                </div>
+
+                <div class="blok-generowany">
+                    <h3>Wygenerowane Koordynaty Sektorów:</h3>
+                    <ul id="lista-koordynatow">
+                        <li>Oczekuję na przeliczenie wektorów...</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="skrypt.js"></script>
+</body>
+</html>
