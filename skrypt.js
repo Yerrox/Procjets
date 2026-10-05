@@ -21,6 +21,8 @@ const outCel = document.getElementById('out-cel');
 const outStatus = document.getElementById('out-status');
 const outCzas = document.getElementById('out-czas');
 const outSpalanie = document.getElementById('out-spalanie');
+const wierszSt = document.getElementById('wiersz-statusowy');
+const listaKoordynatow = document.getElementById('lista-koordynatow');
 
 
 const bStart = document.getElementById('btn-start');
@@ -58,4 +60,32 @@ bStart.addEventListener('click', () => {
 
     outCzas.textContent = `${godziny}:${minuty}:${sekundy}`;
 
+    if (poziomPaliwa < 20.0) {
+        wierszSt.style.backgroundColor = "#450a0a";
+        outStatus.textContent = "KRYTYCZNY STAN PALIWA"
+    }else{
+        wierszSt.style.backgroundColor = "#064e3b";
+        outStatus.textContent = "AUTORYZACJA POPRAWNA";
+    }
+
+    const spalanie = poziomPaliwa / liczbaSektorow;
+    const wynikSpalania = Math.floor(spalanie);
+
+    outSpalanie.textContent = wynikSpalania;
+
+    listaKoordynatow.innerHTML = "";
+    const rejestrSektorow = [];
+    for (let i = 0; i < liczbaSektorow.length; i++) {
+        const wylosowanaLiczba = Math.floor(Math.random() * (999 - 100 + 1) + 100)
+        rejestrSektorow.push(wylosowanaLiczba);
+        if (listaKoordynatow !== null) {
+            listaKoordynatow.innerHTML = `<li>Sektor ${i + 1}: Koordynat ${wylosowanaLiczba}</li>`;
+        }
+    }
+
+    let data = new Date();
+    let nowa = data.setFullYear(data.getFullYear + 4);
+    document.cookie = "ostatniaMisja=" + kodMisji + "; expires=" + nowa + "; path=/";
+    
+    console.table(rejestrSektorow);
 });
