@@ -31,7 +31,7 @@ bStart.addEventListener('click', () => {
     const poziomPaliwa = parseFloat(document.getElementById('poziom-paliwa').value);
     const liczbaSektorow = parseInt(document.getElementById('liczba-sektorow').value);
 
-    if (kodMisji.length === 0 || isNaN(poziomPaliwa) || poziomPaliwa <= 0 || liczbaSektorow < 1 | liczbaSektorow > 10) {
+    if (kodMisji.length === 0 || isNaN(poziomPaliwa) || poziomPaliwa <= 0 || liczbaSektorow < 1 || liczbaSektorow > 10) {
         alert("BŁĄD KRYTYCZNY DANYCH");
         return;
     }
@@ -39,14 +39,14 @@ bStart.addEventListener('click', () => {
     const podzialka = kodMisji.split("-");
 
     try {
-        if (podzialka !== 3) {
+        if (podzialka.length !== 3) {
             awariaDeszyfratora();
-        } else if(podzialka === 3){
+        } else if(podzialka.length === 3){
             const cel = podzialka[1].toUpperCase();
             outCel.textContent = cel;
         }
     } catch (blad) {
-        console.log("Naruszenie protokołu: " + blad.message);
+        console.error("Naruszenie protokołu: " + blad.message);
         if (outCel !== null) {
             outCel.textContent = "BŁĄD KRYPTONIMU";
         }
@@ -75,16 +75,16 @@ bStart.addEventListener('click', () => {
 
     listaKoordynatow.innerHTML = "";
     const rejestrSektorow = [];
-    for (let i = 0; i < liczbaSektorow.length; i++) {
+    for (let i = 0; i < liczbaSektorow; i++) {
         const wylosowanaLiczba = Math.floor(Math.random() * (999 - 100 + 1) + 100)
         rejestrSektorow.push(wylosowanaLiczba);
         if (listaKoordynatow !== null) {
-            listaKoordynatow.innerHTML = `<li>Sektor ${i + 1}: Koordynat ${wylosowanaLiczba}</li>`;
+            listaKoordynatow.innerHTML += `<li>Sektor ${i + 1}: Koordynat ${wylosowanaLiczba}</li>`;
         }
     }
 
     let data = new Date();
-    let nowa = data.setFullYear(data.getFullYear + 4);
+    let nowa = data.setFullYear(data.getFullYear + 4).toUTCString();
     document.cookie = "ostatniaMisja=" + kodMisji + "; expires=" + nowa + "; path=/";
     
     console.table(rejestrSektorow);
