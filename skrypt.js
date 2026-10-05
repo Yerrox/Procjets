@@ -13,8 +13,6 @@ const outMisja = document.getElementById('out-ostatnia-misja');
 const ostatniaMisja = odczytajCiasteczko("ostatniaMisja");
 if (ostatniaMisja !== null) {
     outMisja.textContent = `Pamięć podręczna: Ostatnia misja to ${ostatniaMisja}.`;
-}else{
-    outMisja.textContent = "Brak danych o poprzednich logowaniach."
 }
 
 const outCel = document.getElementById('out-cel');
@@ -83,9 +81,8 @@ bStart.addEventListener('click', () => {
         }
     }
 
-    let data = new Date();
-    let nowa = data.setFullYear(data.getFullYear + 4).toUTCString();
-    document.cookie = "ostatniaMisja=" + kodMisji + "; expires=" + nowa + "; path=/";
+
+    document.cookie = "ostatniaMisja=" + kodMisji + "; expires=Tue, 01 Jan 2030 00:00:00 GMT" + "; path=/";
     
     console.table(rejestrSektorow);
 });
