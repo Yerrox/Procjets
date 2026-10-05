@@ -17,6 +17,12 @@ if (ostatniaMisja !== null) {
     outMisja.textContent = "Brak danych o poprzednich logowaniach."
 }
 
+const outCel = document.getElementById('out-cel');
+const outStatus = document.getElementById('out-status');
+const outCzas = document.getElementById('out-czas');
+const outSpalanie = document.getElementById('out-spalanie');
+
+
 const bStart = document.getElementById('btn-start');
 bStart.addEventListener('click', () => {
     const kodMisji = document.getElementById('kod-misji').value.trim();
@@ -28,5 +34,28 @@ bStart.addEventListener('click', () => {
         return;
     }
 
-    
+    const podzialka = kodMisji.split("-");
+
+    try {
+        if (podzialka !== 3) {
+            awariaDeszyfratora();
+        } else if(podzialka === 3){
+            const cel = podzialka[1].toUpperCase();
+            outCel.textContent = cel;
+        }
+    } catch (blad) {
+        console.log("Naruszenie protokołu: " + blad.message);
+        if (outCel !== null) {
+            outCel.textContent = "BŁĄD KRYPTONIMU";
+        }
+    }
+
+
+    let teraz = new Date();
+    let godziny = teraz.getHours();
+    let minuty = teraz.getMinutes();
+    let sekundy = teraz.getSeconds();
+
+    outCzas.textContent = `${godziny}:${minuty}:${sekundy}`;
+
 });
